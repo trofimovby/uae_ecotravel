@@ -89,34 +89,35 @@
 <body class="bg-white text-gray-900 relative selection:bg-ecoPink selection:text-white overflow-x-hidden pt-[90px]">
 
     <nav class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 h-[90px] flex items-center border-gradient-bottom" role="navigation" aria-label="Основная навигация">
-        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-6 w-full h-full flex justify-between items-center">
 
-            <a href="#" class="flex-shrink-0 hover:scale-105 transition duration-300 z-50 touch-target" aria-label="Ecotravel - главная страница">
-                <img src="logo.png" alt="Логотип Ecotravel" class="h-10 md:h-12 w-auto object-contain" width="160" height="48">
+        <a href="#" class="flex-shrink-0 hover:scale-105 transition duration-300 z-50 touch-target flex items-center" aria-label="Ecotravel - главная страница">
+            <img src="logo.png" alt="Логотип Ecotravel" class="h-10 md:h-12 w-auto object-contain" width="160" height="48">
+        </a>
+
+        <div class="hidden md:flex h-full items-center gap-8 text-[15px] font-medium text-gray-600 font-sans">
+            <a href="#why" class="hover:text-ecoBlue transition hover:-translate-y-0.5 touch-target flex items-center h-full">Преимущества</a>
+            <a href="#resorts" class="hover:text-ecoPink transition hover:-translate-y-0.5 touch-target flex items-center h-full">Курорты</a>
+            <a href="#gallery" class="hover:text-ecoPink transition hover:-translate-y-0.5 touch-target flex items-center h-full">Атмосфера</a>
+            <a href="#contact" class="hover:text-ecoGreen transition hover:-translate-y-0.5 touch-target flex items-center h-full">Запись</a>
+            <a href="#offices" class="hover:text-gray-900 transition hover:-translate-y-0.5 touch-target flex items-center h-full">Контакты</a>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-6 h-full">
+            <a href="tel:+375293657722" class="hidden lg:flex items-center text-sm font-semibold text-gray-500 hover:text-ecoBlue transition whitespace-nowrap font-mono touch-target h-full" aria-label="Позвонить по номеру +375 29 365-77-22">
+                +375 (29) 365-77-22
             </a>
 
-            <div class="hidden md:flex gap-8 text-[15px] font-medium text-gray-600 font-sans">
-                <a href="#why" class="hover:text-ecoBlue transition hover:-translate-y-0.5 touch-target flex items-center">Преимущества</a>
-                <a href="#gallery" class="hover:text-ecoPink transition hover:-translate-y-0.5 touch-target flex items-center">Атмосфера</a>
-                <a href="#contact" class="hover:text-ecoGreen transition hover:-translate-y-0.5 touch-target flex items-center">Запись</a>
-                <a href="#offices" class="hover:text-gray-900 transition hover:-translate-y-0.5 touch-target flex items-center">Контакты</a>
-            </div>
+            <a href="#contact" class="hidden md:flex bg-gradient-eco text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest font-display hover:scale-105 transition transform shadow-md btn-glow touch-target items-center justify-center">
+                Хочу в Дубай
+            </a>
 
-            <div class="flex items-center gap-4 md:gap-6">
-                <a href="tel:+375293657722" class="hidden lg:block text-sm font-semibold text-gray-500 hover:text-ecoBlue transition whitespace-nowrap font-mono touch-target" aria-label="Позвонить по номеру +375 29 365-77-22">
-                    +375 (29) 365-77-22
-                </a>
-
-                <a href="#contact" class="hidden md:flex bg-gradient-eco text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest font-display hover:scale-105 transition transform shadow-md btn-glow touch-target items-center justify-center">
-                    Хочу в Дубай
-                </a>
-
-                <button id="menu-btn" class="md:hidden text-2xl text-gray-800 z-50 focus:outline-none focus:ring-2 focus:ring-ecoBlue rounded touch-target flex items-center justify-center" aria-label="Открыть меню" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-800 z-50 focus:outline-none focus:ring-2 focus:ring-ecoBlue rounded touch-target flex items-center justify-center" aria-label="Открыть меню" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[90] transform translate-x-full flex flex-col items-center justify-center space-y-8 md:hidden" role="dialog" aria-modal="true" aria-label="Мобильное меню">
         <a href="#why" class="text-2xl font-display font-bold text-gray-800 touch-target" onclick="closeMenu()">Преимущества</a>
