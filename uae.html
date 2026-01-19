@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecotravel - Туры в ОАЭ</title>
+    <meta name="description" content="Туры в ОАЭ без визы. Прямой перелет из Минска. Сезон 2026 открыт.">
+    <title>Ecotravel - Яркие туры в ОАЭ</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Unbounded:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
@@ -23,310 +25,406 @@
                         display: ['Unbounded', 'sans-serif'],
                     },
                     colors: {
-                        appleBlack: '#000000',
-                        appleGray: '#F2F2F7',
+                        ecoBlue: '#00AEEF',
+                        ecoGreen: '#8DC63F',
+                        ecoPink: '#EC008C',
+                        ecoYellow: '#FFF200',
                     },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        }
-                    }
                 }
             }
         }
     </script>
 
     <style>
-        body { -webkit-font-smoothing: antialiased; }
+        .bg-gradient-eco { background: linear-gradient(90deg, #00AEEF 0%, #8DC63F 100%); }
+        .text-gradient-eco { background: linear-gradient(90deg, #00AEEF, #EC008C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .border-gradient-bottom { border-bottom: 3px solid; border-image: linear-gradient(to right, #00AEEF, #8DC63F, #FFF200, #EC008C) 1; }
+        .btn-glow:hover { box-shadow: 0 0 25px rgba(0, 174, 239, 0.5); }
 
-        /* Градиентный текст */
-        .text-gradient {
-            background: linear-gradient(to right, #FF9F0A, #FF375F, #BF5AF2, #0A84FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 300% auto;
-            animation: gradientMove 5s ease infinite;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Цветные пятна (Mesh Gradient) */
-        .blob-purple { background: radial-gradient(circle, rgba(191,90,242,0.15) 0%, rgba(0,0,0,0) 70%); }
-        .blob-orange { background: radial-gradient(circle, rgba(255,159,10,0.15) 0%, rgba(0,0,0,0) 70%); }
-
-        /* Стили для соцсетей */
-        .social-btn:hover .fa-instagram { color: #E1306C; }
-        .social-btn:hover .fa-telegram { color: #0088cc; }
-        .social-btn:hover .fa-viber { color: #7360f2; }
+        /* Мобильное меню анимация */
+        #mobile-menu { transition: transform 0.3s ease-in-out; }
+        .menu-open { transform: translateX(0) !important; }
     </style>
 </head>
-<body class="bg-white text-appleBlack relative selection:bg-black selection:text-white overflow-x-hidden">
+<body class="bg-white text-gray-900 relative selection:bg-ecoPink selection:text-white overflow-x-hidden pt-[90px]">
 
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] blob-purple rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div class="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] blob-orange rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-    </div>
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 h-[90px] flex items-center border-gradient-bottom">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
 
-    <a href="#contact" class="fixed bottom-6 right-6 z-50 bg-black text-white px-6 py-4 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.3)] flex items-center gap-3 hover:scale-105 transition-transform duration-300 border border-white/10 group">
-        <div class="relative">
-            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-            <div class="absolute top-0 left-0 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
-        </div>
-        <span class="font-medium font-sans">Заказать звонок</span>
-        <i class="fa-solid fa-phone transform group-hover:rotate-12 transition-transform"></i>
-    </a>
+            <a href="#" class="flex-shrink-0 hover:scale-105 transition duration-300 z-50">
+                <img src="logo.png" alt="Ecotravel" class="h-10 md:h-12 w-auto object-contain" width="150" height="50">
+            </a>
 
-    <header class="relative h-[100vh] flex flex-col items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="1.png"
-                 alt="Dubai"
-                 class="w-full h-full object-cover brightness-[0.4] scale-105 animate-[pulse_15s_infinite]">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>
-        </div>
-
-        <div class="absolute top-6 left-6 md:top-10 md:left-12 z-20" data-aos="fade-right">
-            <img src="logo.png" alt="Ecotravel" class="h-14 md:h-20 object-contain drop-shadow-2xl">
-        </div>
-
-        <div class="relative z-10 text-center px-4 max-w-6xl mx-auto mt-10">
-            <div class="inline-flex items-center gap-2 py-2 px-5 border border-white/20 rounded-full bg-white/5 backdrop-blur-md mb-8" data-aos="fade-down">
-                <span class="w-2 h-2 rounded-full bg-orange-500"></span>
-                <span class="text-white/90 text-xs font-bold uppercase tracking-widest font-display">Сезон 2026 открыт</span>
+            <div class="hidden md:flex gap-8 text-[15px] font-medium text-gray-600 font-sans">
+                <a href="#why" class="hover:text-ecoBlue transition hover:-translate-y-0.5">Преимущества</a>
+                <a href="#gallery" class="hover:text-ecoPink transition hover:-translate-y-0.5">Атмосфера</a>
+                <a href="#contact" class="hover:text-ecoGreen transition hover:-translate-y-0.5">Запись</a>
+                <a href="#offices" class="hover:text-gray-900 transition hover:-translate-y-0.5">Контакты</a>
             </div>
 
-            <h1 class="text-5xl md:text-8xl lg:text-9xl font-display font-bold text-white tracking-tighter mb-8 leading-[1]" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-6">
+                <a href="tel:+375293657722" class="hidden lg:block text-sm font-semibold text-gray-500 hover:text-ecoBlue transition whitespace-nowrap font-mono">
+                    +375 (29) 365-77-22
+                </a>
+
+                <a href="#contact" class="hidden md:flex bg-gradient-eco text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest font-display hover:scale-105 transition transform shadow-md btn-glow">
+                    Хочу в Дубай
+                </a>
+
+                <button id="menu-btn" class="md:hidden text-2xl text-gray-800 z-50 focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[90] transform translate-x-full flex flex-col items-center justify-center space-y-8 md:hidden">
+        <a href="#why" class="text-2xl font-display font-bold text-gray-800" onclick="closeMenu()">Преимущества</a>
+        <a href="#gallery" class="text-2xl font-display font-bold text-gray-800" onclick="closeMenu()">Атмосфера</a>
+        <a href="#contact" class="text-2xl font-display font-bold text-gray-800" onclick="closeMenu()">Запись</a>
+        <a href="#offices" class="text-2xl font-display font-bold text-gray-800" onclick="closeMenu()">Контакты</a>
+        <a href="tel:+375293657722" class="text-xl font-mono font-bold text-ecoBlue">+375 (29) 365-77-22</a>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+        <a href="tel:+375293657722" class="w-14 h-14 bg-ecoGreen rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition duration-300 animate-[bounce_2s_infinite]" aria-label="Позвонить">
+            <i class="fa-solid fa-phone text-2xl"></i>
+        </a>
+    </div>
+
+    <header class="relative h-[85vh] flex flex-col items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="8.png" alt="Dubai" class="w-full h-full object-cover brightness-[0.5]" fetchpriority="high">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-6xl mx-auto mt-6">
+            <div class="inline-block py-2 px-6 border border-white/30 rounded-full bg-white/10 backdrop-blur-md mb-8" data-aos="zoom-in">
+                <span class="text-ecoYellow text-sm font-bold uppercase tracking-widest font-display">🔥 Сезон 2026 открыт</span>
+            </div>
+
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-display font-black text-white tracking-tighter mb-6 leading-[0.9] drop-shadow-2xl" data-aos="fade-up">
                 ОАЭ<br>
-                <span class="text-gradient">БУДУЩЕЕ</span><br>
-                ЗДЕСЬ.
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-ecoBlue via-ecoGreen to-ecoYellow">МЕЧТА</span><br>
+                БЛИЗКО
             </h1>
 
-            <p class="text-lg md:text-2xl text-gray-300 font-light mb-12 max-w-2xl mx-auto leading-relaxed font-sans" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-xl md:text-2xl text-white font-medium mb-6 max-w-2xl mx-auto drop-shadow-md opacity-90" data-aos="fade-up" data-aos-delay="200">
                 Без визы. Прямой перелет. Лето круглый год.
             </p>
 
-            <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#contact" class="group relative inline-flex items-center justify-center px-12 py-5 text-lg font-bold text-white transition-all duration-200 bg-white/10 font-display border border-white/20 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+            <div class="flex justify-center w-full" data-aos="fade-up" data-aos-delay="300">
+                <a href="#contact" class="inline-flex items-center justify-center px-10 py-5 text-lg md:text-xl font-black text-white transition-all duration-300 bg-ecoPink rounded-full hover:bg-pink-600 shadow-[0_0_40px_rgba(236,0,140,0.6)] hover:scale-105 transform">
                     РАССЧИТАТЬ СТОИМОСТЬ
-                    <i class="fa-solid fa-arrow-right ml-3 -mr-1 transition-transform group-hover:translate-x-1"></i>
+                    <i class="fa-solid fa-plane-departure ml-3"></i>
                 </a>
             </div>
         </div>
     </header>
 
-    <section class="py-32 px-6 md:px-12 relative z-20">
+    <section id="why" class="py-24 px-6 md:px-12 relative z-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-6xl font-display font-bold text-center mb-20 tracking-tight" data-aos="fade-up">
-                ПОЧЕМУ <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">ДУБАЙ?</span>
+            <h2 class="text-4xl md:text-6xl font-display font-black text-center mb-20 uppercase" data-aos="fade-up">
+                Почему <span class="text-ecoBlue">Дубай?</span>
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white/80 backdrop-blur-xl p-10 rounded-[40px] shadow-xl border border-white/50 hover:border-purple-300 transition duration-500 group flex flex-col justify-between" data-aos="fade-up">
-                    <div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mb-8 text-3xl group-hover:scale-110 transition-transform shadow-inner">📄</div>
-                        <h3 class="text-2xl font-display font-bold mb-4">Виза не нужна</h3>
-                        <p class="text-gray-500 text-lg leading-relaxed">Бесплатный штамп в аэропорту. Проходите контроль за 60 секунд.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-[40px] shadow-2xl border-b-8 border-ecoBlue hover:-translate-y-2 transition duration-300" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-4xl text-ecoBlue">
+                        <i class="fa-solid fa-passport"></i>
                     </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Виза не нужна</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">Бесплатный штамп в аэропорту. Никаких бумажек и посольств. Просто летите!</p>
                 </div>
-                <div class="bg-black text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-600 blur-[80px] opacity-30 rounded-full group-hover:opacity-50 transition duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-gray-800 rounded-3xl flex items-center justify-center mb-8 text-3xl group-hover:scale-110 transition-transform">☀️</div>
-                        <h3 class="text-2xl font-display font-bold mb-4">Вечное лето</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Гарантия солнца. Когда дома слякоть, здесь +28°C.</p>
+
+                <div class="bg-white p-10 rounded-[40px] shadow-2xl border-b-8 border-ecoYellow hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mb-6 text-4xl text-yellow-500">
+                        <i class="fa-solid fa-sun"></i>
                     </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Вечное лето</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">Гарантия солнца и +28°C. Идеальное море, когда дома холодно и серо.</p>
                 </div>
-                <div class="bg-white/80 backdrop-blur-xl p-10 rounded-[40px] shadow-xl border border-white/50 hover:border-orange-300 transition duration-500 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-                    <div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mb-8 text-3xl group-hover:scale-110 transition-transform shadow-inner">💎</div>
-                        <h3 class="text-2xl font-display font-bold mb-4">Сервис 24/7</h3>
-                        <p class="text-gray-500 text-lg leading-relaxed">Безопасность №1 в мире. Футуристичные отели и идеальный сервис.</p>
+
+                <div class="bg-white p-10 rounded-[40px] shadow-2xl border-b-8 border-ecoPink hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-pink-50 rounded-full flex items-center justify-center mb-6 text-4xl text-ecoPink">
+                        <i class="fa-solid fa-gem"></i>
                     </div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Премиум сервис</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">Безопасность №1 в мире. Футуристичные отели и шопинг мирового уровня.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-10 px-4 md:px-12 relative z-20">
+    <section id="gallery" class="py-10 px-4 md:px-12 relative z-20 bg-gray-50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-display font-bold mb-12 tracking-tight flex items-center gap-4" data-aos="fade-right">
-                <div class="w-3 h-12 bg-orange-500 rounded-full"></div>
+            <h2 class="text-3xl md:text-5xl font-display font-black mb-12 flex items-center gap-4" data-aos="fade-right">
+                <div class="w-4 h-12 bg-gradient-eco rounded-full"></div>
                 АТМОСФЕРА
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
-                <div class="md:col-span-2 md:row-span-2 rounded-[30px] overflow-hidden relative group" data-aos="zoom-in">
-                    <img src="2.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Dubai Large">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
-                    <div class="absolute bottom-8 left-8 text-white">
-                        <p class="text-sm font-bold uppercase tracking-widest mb-2 text-orange-400">Центр мира</p>
-                        <p class="font-display font-bold text-3xl">Бурдж-Халифа</p>
-                    </div>
+                <div class="md:col-span-2 md:row-span-2 rounded-[30px] overflow-hidden relative group shadow-lg" data-aos="zoom-in">
+                    <img src="4.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Dubai" loading="lazy">
+                    <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg font-bold shadow-sm">🏙 Бурдж-Халифа</div>
                 </div>
-                <div class="md:col-span-1 md:row-span-1 rounded-[30px] overflow-hidden relative group" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="3.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Activity">
+                <div class="md:col-span-1 md:row-span-1 rounded-[30px] overflow-hidden relative group shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="3.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Activity" loading="lazy">
                 </div>
-                <div class="md:col-span-1 md:row-span-1 rounded-[30px] overflow-hidden relative group" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="4.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Pool">
+                <div class="md:col-span-1 md:row-span-1 rounded-[30px] overflow-hidden relative group shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="6.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Pool" loading="lazy">
                 </div>
-                <div class="md:col-span-2 md:row-span-1 rounded-[30px] overflow-hidden relative group" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="5.png" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Night View">
-                    <div class="absolute bottom-6 left-6 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white font-display text-sm border border-white/20">Night Life</div>
+                <div class="md:col-span-2 md:row-span-1 rounded-[30px] overflow-hidden relative group shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="7.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Night" loading="lazy">
+                    <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg font-bold shadow-sm">🌙 Ночная жизнь</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 relative z-20">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">ОТДЫХ ПОД КЛЮЧ</h2>
-            </div>
-            <div class="space-y-4 max-w-2xl mx-auto font-sans">
-                <div class="flex items-center gap-6 p-8 bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" data-aos="fade-up">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,0,0,0.3)]"><i class="fa-solid fa-check"></i></div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-1">Подбор за 15 минут</h4>
-                        <p class="text-gray-500">Предлагаем только проверенные отели строго под ваш бюджет.</p>
+    <section class="py-24 px-6 relative z-20 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-display font-black text-center mb-16 uppercase">
+                Все <span class="text-ecoBlue">просто</span> и <span class="text-ecoPink">комфортно</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[30px] shadow-sm hover:border-ecoBlue transition duration-300 cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-ecoBlue">
+                                <i class="fa-solid fa-plane"></i>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:text-ecoBlue transition">Долго лететь?</h3>
+                        </div>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-ecoBlue transition-transform duration-300 text-xl"></i>
+                    </div>
+                    <div class="hidden text-gray-600 mt-4 leading-relaxed pl-14">
+                        Совсем нет! Полет проходит незаметно — всего 5.5 – 6 часов прямого рейса. Вы успеете посмотреть пару фильмов, вкусно пообедать, и вот вы уже под теплым солнцем Эмиратов.
                     </div>
                 </div>
-                <div class="flex items-center gap-6 p-8 bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,0,0,0.3)]"><i class="fa-solid fa-headset"></i></div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-1">Поддержка 24/7</h4>
-                        <p class="text-gray-500">Персональный менеджер на связи в мессенджерах всю поездку.</p>
+
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[30px] shadow-sm hover:border-ecoGreen transition duration-300 cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-ecoGreen">
+                                <i class="fa-solid fa-virus-slash"></i>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:text-ecoGreen transition">Нужны тесты или прививки?</h3>
+                        </div>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-ecoGreen transition-transform duration-300 text-xl"></i>
+                    </div>
+                    <div class="hidden text-gray-600 mt-4 leading-relaxed pl-14">
+                        Выдыхайте! Эмираты полностью открыты. Никаких ПЦР-тестов, сертификатов вакцинации или масок. Только ваш паспорт, улыбка и хорошее настроение!
                     </div>
                 </div>
+
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[30px] shadow-sm hover:border-ecoYellow transition duration-300 cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600">
+                                <i class="fa-solid fa-martini-glass-citrus"></i>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:text-yellow-600 transition">А как там с алкоголем?</h3>
+                        </div>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-yellow-600 transition-transform duration-300 text-xl"></i>
+                    </div>
+                    <div class="hidden text-gray-600 mt-4 leading-relaxed pl-14">
+                        Дубай — современный мегаполис. В ресторанах, барах и отелях алкоголь доступен без проблем. Мы подскажем вам отели, где действует система «Все включено» с отличными напитками.
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[30px] shadow-sm hover:border-ecoPink transition duration-300 cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-ecoPink">
+                                <i class="fa-solid fa-child-reaching"></i>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:text-ecoPink transition">Детям не будет скучно?</h3>
+                        </div>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-ecoPink transition-transform duration-300 text-xl"></i>
+                    </div>
+                    <div class="hidden text-gray-600 mt-4 leading-relaxed pl-14">
+                        ОАЭ — это лучший в мире «Диснейленд»! Аквапарки, Legoland, огромные океанариумы и теплые пляжи с пологим входом. Ваши дети будут в полном восторге, обещаем!
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[30px] shadow-sm hover:border-purple-500 transition duration-300 cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600">
+                                <i class="fa-regular fa-credit-card"></i>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:text-purple-600 transition">Как платить? Карты работают?</h3>
+                        </div>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-purple-600 transition-transform duration-300 text-xl"></i>
+                    </div>
+                    <div class="hidden text-gray-600 mt-4 leading-relaxed pl-14">
+                        Мы рекомендуем брать с собой наличные доллары — их легко поменять в любом молле по выгодному курсу. Это самый надежный способ ни о чем не волноваться.
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[30px] shadow-sm hover:border-blue-600 transition duration-300 cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <h3 class="text-lg font-bold group-hover:text-blue-600 transition">Там строгий дресс-код?</h3>
+                        </div>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-blue-600 transition-transform duration-300 text-xl"></i>
+                    </div>
+                    <div class="hidden text-gray-600 mt-4 leading-relaxed pl-14">
+                        В отелях и туристических зонах вы можете одеваться так, как привыкли на отдыхе — шорты, платья, купальники. Ограничения касаются только государственных учреждений и мечетей.
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-white/50 backdrop-blur-sm relative z-20">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-display font-bold text-center mb-16">ЧАСТЫЕ ВОПРОСЫ</h2>
-            <div class="space-y-4">
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <button class="w-full text-left flex justify-between items-center text-xl font-bold font-display" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-45')">
-                        Сколько лететь? <i class="fa-solid fa-plus text-sm transition-transform duration-300"></i>
+    <script>
+        function toggleFaq(card) {
+            const content = card.querySelector('div.hidden, div.block');
+            const icon = card.querySelector('.fa-plus');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                content.classList.add('block');
+                content.classList.add('animate-fade-in'); // Плавное появление
+                icon.classList.add('rotate-45');
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+                icon.classList.remove('rotate-45');
+            }
+        }
+    </script>
+
+    <section id="contact" class="py-24 px-6 relative z-30 bg-gray-50">
+        <div class="max-w-5xl mx-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-[50px] p-8 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-80 h-80 bg-ecoPink blur-[100px] opacity-30"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-ecoBlue blur-[100px] opacity-30"></div>
+
+            <div class="relative z-10">
+                <span class="text-ecoYellow font-black tracking-widest uppercase mb-4 block">Не теряйте время</span>
+                <h2 class="text-4xl md:text-6xl font-display font-black mb-8 leading-tight">
+                    ДУБАЙ ЖДЕТ<br>ИМЕННО ВАС
+                </h2>
+                <p class="text-gray-300 text-xl mb-12 max-w-2xl mx-auto">
+                    Оставьте заявку сейчас. Мы перезвоним через 5 минут и подберем 3 лучших отеля под ваш бюджет.
+                </p>
+
+                <form class="space-y-4 max-w-lg mx-auto">
+                    <input type="text" placeholder="Ваше имя" class="w-full bg-white/10 border-2 border-white/10 rounded-2xl px-6 py-5 text-lg text-white placeholder-gray-400 focus:border-ecoBlue focus:ring-0 transition outline-none backdrop-blur-sm">
+                    <input type="tel" placeholder="Номер телефона" class="w-full bg-white/10 border-2 border-white/10 rounded-2xl px-6 py-5 text-lg text-white placeholder-gray-400 focus:border-ecoGreen focus:ring-0 transition outline-none backdrop-blur-sm">
+
+                    <button type="submit" class="w-full bg-gradient-eco text-white font-display font-black text-xl rounded-2xl py-5 hover:scale-[1.02] transition duration-300 shadow-[0_0_30px_rgba(0,174,239,0.5)] mt-4">
+                        ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ
                     </button>
-                    <p class="hidden text-gray-500 mt-4 pb-2">Около 5.5 – 6 часов прямым рейсом из Минска или Москвы.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <button class="w-full text-left flex justify-between items-center text-xl font-bold font-display" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-45')">
-                        Нужен ПЦР? <i class="fa-solid fa-plus text-sm transition-transform duration-300"></i>
-                    </button>
-                    <p class="hidden text-gray-500 mt-4 pb-2">Нет, все ковидные ограничения полностью сняты.</p>
-                </div>
+                </form>
+                <p class="mt-6 text-sm text-gray-500">Нажимая кнопку, вы даете согласие на обработку персональных данных</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 relative z-20">
+    <footer id="offices" class="bg-white py-24 px-6 border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-display font-bold text-center mb-16">НАШИ ОФИСЫ</h2>
+            <h2 class="text-3xl md:text-5xl font-display font-black text-center mb-16 text-gray-900">НАШИ ОФИСЫ</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-[30px] shadow-lg border border-gray-100 text-center md:text-left hover:-translate-y-2 transition duration-300" data-aos="fade-up">
-                    <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6 text-xl mx-auto md:mx-0 shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gray-50 p-10 rounded-[30px] border border-gray-100 text-center hover:shadow-xl hover:bg-white transition duration-300">
+                    <div class="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center mb-6 text-2xl mx-auto">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <h3 class="text-xl font-bold font-display mb-2">Минск</h3>
-                    <p class="text-lg mb-6 border-b border-gray-100 pb-4 text-gray-600">ул. Комсомольская, 14</p>
-                    <div class="space-y-2 text-gray-800 font-mono font-medium text-sm">
+                    <h3 class="text-xl font-bold mb-2">Минск</h3>
+                    <p class="text-gray-500 mb-6 pb-6 border-b border-gray-200">ул. Комсомольская, 14</p>
+                    <div class="text-gray-900 font-bold font-mono text-lg">
                         <p>+375 (29) 365-77-22</p>
                         <p>+375 (33) 365-77-22</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-[30px] shadow-lg border border-gray-100 text-center md:text-left hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6 text-xl mx-auto md:mx-0 shadow-lg">
+                <div class="bg-gray-50 p-10 rounded-[30px] border border-gray-100 text-center hover:shadow-xl hover:bg-white transition duration-300">
+                    <div class="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center mb-6 text-2xl mx-auto">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <h3 class="text-xl font-bold font-display mb-2">Минск</h3>
-                    <p class="text-lg mb-6 border-b border-gray-100 pb-4 text-gray-600">пр-т Машерова, 17</p>
-                    <div class="space-y-2 text-gray-800 font-mono font-medium text-sm">
+                    <h3 class="text-xl font-bold mb-2">Минск</h3>
+                    <p class="text-gray-500 mb-6 pb-6 border-b border-gray-200">пр-т Машерова, 17</p>
+                    <div class="text-gray-900 font-bold font-mono text-lg">
                         <p>+375 (29) 355-88-33</p>
                         <p>+375 (33) 355-88-33</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-[30px] shadow-lg border border-gray-100 text-center md:text-left hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6 text-xl mx-auto md:mx-0 shadow-lg">
+                <div class="bg-gray-50 p-10 rounded-[30px] border border-gray-100 text-center hover:shadow-xl hover:bg-white transition duration-300">
+                    <div class="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center mb-6 text-2xl mx-auto">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <h3 class="text-xl font-bold font-display mb-2">Минск</h3>
-                    <p class="text-lg mb-6 border-b border-gray-100 pb-4 text-gray-600">пр-т Независимости, 55</p>
-                    <div class="space-y-2 text-gray-800 font-mono font-medium text-sm">
+                    <h3 class="text-xl font-bold mb-2">Минск</h3>
+                    <p class="text-gray-500 mb-6 pb-6 border-b border-gray-200">пр-т Независимости, 55</p>
+                    <div class="text-gray-900 font-bold font-mono text-lg">
                         <p>+375 (29) 686-66-77</p>
                         <p>+375 (33) 686-66-77</p>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 flex justify-center" data-aos="fade-up">
-                <div class="bg-black text-white py-4 px-10 rounded-full shadow-2xl flex flex-col md:flex-row gap-6 items-center">
-                    <div><span class="text-gray-400">Пн-Пт:</span> <span class="font-bold font-display ml-2">10:00 - 19:00</span></div>
-                    <div class="hidden md:block w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
-                    <div><span class="text-gray-400">Сб:</span> <span class="font-bold font-display ml-2">11:00 - 15:00</span></div>
-                    <div class="hidden md:block w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
-                    <div><span class="text-gray-400">Вс:</span> <span class="font-bold font-display ml-2">Выходной</span></div>
+            <div class="text-center border-t border-gray-200 pt-12">
+                <div class="flex justify-center gap-6 mb-10">
+                    <a href="#" class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 shadow-sm hover:scale-110 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:to-purple-600 transition duration-300"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                    <a href="#" class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 shadow-sm hover:scale-110 hover:text-white hover:bg-ecoBlue transition duration-300"><i class="fa-brands fa-telegram text-2xl"></i></a>
+                    <a href="#" class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 shadow-sm hover:scale-110 hover:text-white hover:bg-purple-600 transition duration-300"><i class="fa-brands fa-viber text-2xl"></i></a>
                 </div>
-            </div>
 
-            <div class="mt-12 flex justify-center gap-6" data-aos="fade-up">
-                <a href="#" class="social-btn w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transition hover:-translate-y-2"><i class="fa-brands fa-instagram text-3xl"></i></a>
-                <a href="#" class="social-btn w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transition hover:-translate-y-2"><i class="fa-brands fa-telegram text-3xl"></i></a>
-                <a href="#" class="social-btn w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transition hover:-translate-y-2"><i class="fa-brands fa-viber text-3xl"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-black text-white py-32 px-6 rounded-t-[60px] relative z-30 -mt-10 overflow-hidden">
-        <div class="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-gradient-to-b from-purple-900 to-black opacity-30 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-xl mx-auto text-center relative z-10" data-aos="fade-up">
-            <div class="flex justify-center mb-10">
-                <img src="logo.png" alt="Ecotravel" class="h-20 object-contain bg-white/10 rounded-2xl px-4 py-2 backdrop-blur-md">
-            </div>
-
-            <span class="text-sm font-bold tracking-widest uppercase text-purple-400 mb-4 block font-display">Оставьте заявку</span>
-            <h2 class="text-4xl md:text-7xl font-display font-bold mb-8 tracking-tighter">ДУБАЙ ЖДЕТ</h2>
-            <p class="text-gray-400 text-lg mb-12">Перезвоним за 5 минут. Подберем лучшие варианты.</p>
-
-            <form class="space-y-4 max-w-md mx-auto">
-                <div class="relative group">
-                    <input type="text" placeholder="Ваше имя" class="w-full bg-[#111] border border-gray-800 rounded-2xl px-6 py-5 text-lg text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition outline-none">
-                </div>
-                <div class="relative group">
-                    <input type="tel" placeholder="Номер телефона" class="w-full bg-[#111] border border-gray-800 rounded-2xl px-6 py-5 text-lg text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition outline-none">
-                </div>
-                <button type="submit" class="w-full bg-white text-black font-display font-bold text-lg rounded-2xl py-5 hover:bg-gray-200 hover:scale-[1.02] transition duration-300 mt-6 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                    ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ
-                </button>
-            </form>
-
-            <div class="mt-16 flex justify-center gap-6">
-                <a href="#" class="social-btn w-12 h-12 bg-[#222] text-white rounded-full flex items-center justify-center transition hover:scale-110 hover:bg-white hover:text-black"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="social-btn w-12 h-12 bg-[#222] text-white rounded-full flex items-center justify-center transition hover:scale-110 hover:bg-white hover:text-black"><i class="fa-brands fa-telegram text-xl"></i></a>
-                <a href="#" class="social-btn w-12 h-12 bg-[#222] text-white rounded-full flex items-center justify-center transition hover:scale-110 hover:bg-white hover:text-black"><i class="fa-brands fa-viber text-xl"></i></a>
-            </div>
-
-            <div class="mt-12 text-xs text-gray-600">
-                <a href="#" class="hover:text-white transition">Политика обработки персональных данных</a>
+                <img src="logo.png" alt="Ecotravel" class="h-16 mx-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition duration-500 mb-6" loading="lazy">
+                <p class="text-gray-400 text-sm">© 2026 Ecotravel. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Инициализация AOS
         AOS.init({ duration: 800, offset: 50, once: true });
+
+        // Логика FAQ
+        function toggleFaq(card) {
+            const content = card.querySelector('p');
+            const icon = card.querySelector('.fa-plus');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-45');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-45');
+            }
+        }
+
+        // Логика мобильного меню
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('menu-open');
+            // Меняем иконку при открытии
+            const icon = menuBtn.querySelector('i');
+            if(mobileMenu.classList.contains('menu-open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.remove('menu-open');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
     </script>
 </body>
 </html>
