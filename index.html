@@ -632,13 +632,55 @@
         });
 
         // Обработка отправки формы (можно доработать под ваш бэкенд)
-        const contactForm = document.querySelector('#contact form');
-        if(contactForm) {
+        const contactForm = document.querySelector('form');
+
+        if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Здесь добавьте отправку данных на сервер
-                alert('Спасибо! Мы перезвоним вам в течение 5 минут.');
-                contactForm.reset();
+                e.preventDefault(); // Останавливаем перезагрузку страницы
+
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const nameInput = contactForm.querySelector('input[name="name"]');
+                const phoneInput = contactForm.querySelector('input[name="phone"]');
+
+                // 1. Визуальный эффект (чтобы клиент понял, что процесс идет)
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = 'ОТПРАВЛЯЕМ...';
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+                // 2. Сбор данных для FormSubmit
+                const formData = new FormData();
+                formData.append("name", nameInput.value);
+                formData.append("phone", phoneInput.value);
+
+                // Настройки FormSubmit (скрытые поля)
+                formData.append("_captcha", "false"); // Отключаем капчу (чтобы не бесила)
+                formData.append("_subject", "🔥 Новая заявка (Ecotravel)!"); // Тема письма
+                formData.append("_template", "table"); // Красивая табличка в письме
+
+                // 3. Отправка (AJAX)
+                // !!! ВАЖНО: ЗАМЕНИТЕ 'ВАШ_EMAIL@GMAIL.COM' НА ВАШУ РЕАЛЬНУЮ ПОЧТУ !!!
+                fetch("https://formsubmit.co/ajax/trofasby@mail.com", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Успех
+                    alert('Спасибо! Ваша заявка принята. Мы перезвоним вам в течение 5 минут.');
+                    contactForm.reset(); // Очищаем поля
+                })
+                .catch(error => {
+                    // Ошибка
+                    console.error('Ошибка:', error);
+                    alert('Ошибка отправки. Пожалуйста, позвоните нам напрямую.');
+                })
+                .finally(() => {
+                    // 4. Возвращаем кнопку в исходное состояние
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                });
             });
         }
     </script>
