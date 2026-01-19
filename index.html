@@ -573,110 +573,104 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-        // Запуск анимаций после загрузки DOM
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    offset: 50,
-                    once: true,
-                    disable: 'mobile' // Отключаем анимации на мобильных для производительности
-                });
-            }
-        });
+        // ==============================================================
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvQQmZUhZo5dyJBckyw3Zhxh5DINC2mVSs77nTx8ubHL1yS1Lqk4Upcz2sbAlA4Oa1/exec';
+        // ==============================================================
 
-        // Логика мобильного меню
+        // --- Инициализация (AOS и Меню) ---
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 800, offset: 50, once: true });
+        });
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
         if(menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', function() {
-                const isOpen = mobileMenu.classList.toggle('menu-open');
-                menuBtn.setAttribute('aria-expanded', isOpen);
-
-                // Меняем иконку
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('menu-open');
                 const icon = menuBtn.querySelector('i');
-                if(icon) {
-                    if(isOpen) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-xmark');
-                    } else {
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                    }
-                }
+                if(icon) icon.classList.toggle('fa-xmark');
+                if(icon) icon.classList.toggle('fa-bars');
             });
         }
-
         function closeMenu() {
-            if(mobileMenu) {
-                mobileMenu.classList.remove('menu-open');
-                if(menuBtn) {
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                    const icon = menuBtn.querySelector('i');
-                    if(icon) {
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                    }
-                }
-            }
+            if(mobileMenu) mobileMenu.classList.remove('menu-open');
         }
 
-        // Закрытие меню при клике вне его
-        document.addEventListener('click', function(event) {
-            if(mobileMenu && mobileMenu.classList.contains('menu-open')) {
-                if(!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-                    closeMenu();
-                }
-            }
-        });
-
-        // Обработка отправки формы (можно доработать под ваш бэкенд)
+        // === ОТПРАВКА ФОРМЫ С ПРОВЕРКОЙ ===
         const contactForm = document.querySelector('form');
 
         if (contactForm) {
+            // Ограничиваем ввод в поле телефона (только цифры, +, пробелы, скобки)
+            const phoneField = contactForm.querySelector('input[name="phone"]');
+            phoneField.addEventListener('input', function(e) {
+                // Разрешаем только цифры, +, -, (, ), и пробел
+                this.value = this.value.replace(/[^0-9+\-()\s]/g, '');
+            });
+
             contactForm.addEventListener('submit', function(e) {
-                e.preventDefault(); // Останавливаем перезагрузку страницы
+                e.preventDefault();
 
                 const submitBtn = contactForm.querySelector('button[type="submit"]');
                 const nameInput = contactForm.querySelector('input[name="name"]');
                 const phoneInput = contactForm.querySelector('input[name="phone"]');
+                let phoneValue = phoneInput.value;
 
-                // 1. Визуальный эффект (чтобы клиент понял, что процесс идет)
+                // --- БЛОК ВАЛИДАЦИИ (ПРОВЕРКИ) ---
+
+                // 1. Убираем всё лишнее, оставляем только цифры и плюс
+                let cleanPhone = phoneValue.replace(/[^0-9+]/g, '');
+
+                // 2. Авто-коррекция для Беларуси
+                // Если начали с 80... (например 8029...), меняем на +375
+                if (cleanPhone.startsWith('80')) {
+                    cleanPhone = '+375' + cleanPhone.substring(2);
+                }
+                // Если начали с 375... без плюса, добавляем плюс
+                if (cleanPhone.startsWith('375')) {
+                    cleanPhone = '+' + cleanPhone;
+                }
+
+                // 3. Проверка длины (международный формат от 7 до 15 цифр)
+                // cleanPhone.replace(/[^0-9]/g, '').length считает только кол-во цифр
+                const digitCount = cleanPhone.replace(/[^0-9]/g, '').length;
+
+                if (digitCount < 7 || digitCount > 15) {
+                    alert('Пожалуйста, введите корректный номер телефона.\nПример: +375 29 123 45 67');
+
+                    // Подсветим поле красным на секунду
+                    phoneInput.classList.add('border-red-500', 'bg-red-50');
+                    setTimeout(() => {
+                        phoneInput.classList.remove('border-red-500', 'bg-red-50');
+                    }, 3000);
+                    return; // ОСТАНАВЛИВАЕМ ОТПРАВКУ
+                }
+                // ----------------------------------
+
+
+                // Визуальный эффект
                 const originalBtnText = submitBtn.innerText;
                 submitBtn.innerText = 'ОТПРАВЛЯЕМ...';
                 submitBtn.disabled = true;
                 submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
 
-                // 2. Сбор данных для FormSubmit
                 const formData = new FormData();
                 formData.append("name", nameInput.value);
-                formData.append("phone", phoneInput.value);
+                formData.append("phone", cleanPhone); // Отправляем уже чистый, красивый номер
+                formData.append("source", "ОАЭ");
 
-                // Настройки FormSubmit (скрытые поля)
-                formData.append("_captcha", "false"); // Отключаем капчу (чтобы не бесила)
-                formData.append("_subject", "🔥 Новая заявка (Ecotravel)!"); // Тема письма
-                formData.append("_template", "table"); // Красивая табличка в письме
-
-                // 3. Отправка (AJAX)
-                // !!! ВАЖНО: ЗАМЕНИТЕ 'ВАШ_EMAIL@GMAIL.COM' НА ВАШУ РЕАЛЬНУЮ ПОЧТУ !!!
-                fetch("https://formsubmit.co/ajax/trofasby@mail.com", {
+                fetch(GOOGLE_SCRIPT_URL, {
                     method: "POST",
-                    body: formData
+                    body: formData,
+                    mode: 'no-cors'
                 })
-                .then(response => response.json())
-                .then(data => {
-                    // Успех
-                    alert('Спасибо! Ваша заявка принята. Мы перезвоним вам в течение 5 минут.');
-                    contactForm.reset(); // Очищаем поля
+                .then(() => {
+                    alert('Спасибо! Ваша заявка принята.');
+                    contactForm.reset();
                 })
                 .catch(error => {
-                    // Ошибка
                     console.error('Ошибка:', error);
-                    alert('Ошибка отправки. Пожалуйста, позвоните нам напрямую.');
+                    alert('Ошибка соединения.');
                 })
                 .finally(() => {
-                    // 4. Возвращаем кнопку в исходное состояние
                     submitBtn.innerText = originalBtnText;
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
@@ -684,5 +678,6 @@
             });
         }
     </script>
+
 </body>
 </html>
